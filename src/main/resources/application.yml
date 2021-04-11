@@ -1,0 +1,13 @@
+mybatis:
+  check-config-location: false
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: 'jdbc:mysql://localhost:11001/ttrmp_back?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=CTT'
+    username: root
+    password: 114514
+server:
+  port: 11101
