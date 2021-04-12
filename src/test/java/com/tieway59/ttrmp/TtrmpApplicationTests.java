@@ -1,5 +1,6 @@
 package com.tieway59.ttrmp;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tieway59.ttrmp.service.CategoryService;
 import com.tieway59.ttrmp.service.TagService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,19 +20,13 @@ class TtrmpApplicationTests {
 
     @Test
     void contextLoads() {
-        //        log.info(tagService.getById(1).getTagId().toString());
-        //
-        //        String noId = Optional.ofNullable(tagService).map(s -> s.getById(1)).map(Tag::toString).orElse("no id");
-        //
-        //        log.info(Optional.ofNullable(tagService).map(s -> s.getById(1)).map(Tag::toString).orElse("no id"));
 
-        log.info(tagService.query().eq("tag_id", 2).list().toString());
 
-        log.info(categoryService.
-                query().
-                eq("category_level", 1).
-                list().
-                toString());
+        categoryService.
+                page(new Page<>(1, 2)).
+                getRecords().
+                forEach(System.out::println);
+
 
     }
 
