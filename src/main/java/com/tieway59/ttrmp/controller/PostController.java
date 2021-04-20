@@ -20,12 +20,10 @@ public class PostController {
 
     @GetMapping("/post/{id}")
     public Post getPost(@PathVariable("id") int id) {
-        return postService.
-                query().
-                eq("post_id", id).
-                one();
+        return postService.query().eq("post_id", id).one();
     }
 
+    // TODO: add defaults
     @GetMapping("/post")
     public Page<Post> getAllPosts(@RequestParam("page_current") int current, @RequestParam("page_size") int size) {
         return postService.page(new Page<>(current, size));
